@@ -4,12 +4,16 @@ body {
 }
 /********************************Header styles******************************/
 .headerofpage {
-  height: 25px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  height: 35px;
   background-color: #00147e;
   opacity: 0.75;
   padding: 20px 0;
 }
-.headerdiv {
+/*.headerdiv {    Removed headerdiv, headerdiv1 and headerdiv2 as they were not needed.
   margin: 0 auto;
   height: 80px;
   width: 70%;
@@ -26,8 +30,8 @@ body {
   width: 30%;
   display: inline;
   float: right;
-}
-.logoimage {
+}*/
+/*.logoimage {
   background-color: black;
   height: 50px;
   width: 50px;
@@ -36,21 +40,20 @@ body {
   position: absolute;
   margin-left: -730px;
   border-radius: 100px;
-}
+}*/
 .navbar {
   float: left;
   padding: 12px 8%;
-  margin-top: -30px;
+  margin-top: -15px;
   font-size: 30px;
-  margin-left:-260px;
+  margin-left: -5%;
 }
 .navbar2 {
   float: right;
-  padding: 12px 8%;
-  margin-top: 0px;
+  padding: 12px 5%;
+  margin-top: -15px;
   font-size: 30px;
-  margin-top: -30px;
-  margin-right: -220px;
+  /*margin-right: -220px;*/
   border-radius: 100px;
 }
 .Contactndabout {
@@ -65,21 +68,21 @@ body {
   font-size: 22px;
 }
 
-.register{
+.register {
   background-color: rgb(255, 255, 68);
-  width:150%;
-  color:black;
+  width: 150%;
+  color: black;
   border-radius: 10px;
-  font-family:Arial, Helvetica, sans-serif;
-  padding : 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px;
 }
 
-.register:hover{
+.register:hover {
   background-color: rgb(255, 255, 0);
-  color:rgb(24, 22, 22);
+  color: rgb(24, 22, 22);
   border-radius: 4px;
-  font-family:Arial, Helvetica, sans-serif;
-  padding : 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 9px;
 }
 
 /****************************Common Stuff***************************************/
@@ -92,7 +95,7 @@ a:hover {
   background-color: rgb(250, 245, 240);
   border-radius: 6px;
   border-width: 5px;
-  padding:8px;
+  padding: 8px;
 }
 
 h3 {
@@ -100,92 +103,222 @@ h3 {
 }
 /*********************************Top Container******************************/
 .topcontainer {
+  background-image: url(images/btcimg.jpg);
   height: 570px;
-  background-color:white;
+  background-color: white;
   font-size: 25px;
+  margin-top: 80px;
 }
 .topdiv1 {
   border-radius: 10%;
   width: 50%;
   height: 500px;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 .topcontainerimg {
   float: right;
-  width: 700px;
+  width: 50%;
   height: 350px;
   margin-top: 70px;
   margin-right: 30px;
 }
-.topcontpara {
+/*.topcontpara {
   width: 80%;
   margin-left: 100px;
   text-align: left;
-}
-.headingtopcont{
-  font-family: 'Dancing Script', cursive;
+}*/
+.headingtopcont {
+  font-family: "Dancing Script", cursive;
   margin-top: 120px;
-  font-size:85px;
-  margin-left:5px;
-  color: rgb(15, 15, 129);
+  font-size: 300%;
+  margin-left: 5px;
+  color: black;
 }
 
-.GetStartedbtn{
-  color:white;
+.GetStartedbtn {
+  color: white;
   position: absolute;
-  margin-left: 370px;
+  left: 42%;
   margin-top: 70px;
-  background-color:rgb(0, 187, 0);
-  padding:18px;
+  background-color: rgb(0, 187, 0);
+  padding: 18px;
   border-radius: 8px;
   font-size: 30px;
-
 }
-.GetStartedbtn:hover{
-  color:white;
+.GetStartedbtn:hover {
+  color: white;
   position: absolute;
-  margin-left: 370px;
+  left: 42%;
   margin-top: 70px;
-  background-color:rgb(3, 146, 3);
+  background-color: rgb(3, 146, 3);
   border-width: 2px;
-  padding:18px;
+  padding: 18px;
   border-radius: 8px;
 }
-
 
 /********************************middle container***********************************************/
 .middlecontainer {
   height: 500px;
   background-color: beige;
-  padding: 80px;
+  padding: 7%;
   border-radius: 50px;
 }
 
 .middlediv1 {
-  width: 500px;
-  height: 500px;
+  width: 40%;
+  height: 100%;
   float: left;
-  margin-left: 100px;
+  margin-left: 7%;
 }
 .ytvideo1 {
-  width: 500px;
+  border-radius: 10px;
+  width: 100%;
   height: 500px;
 }
 .middlediv2 {
-  width: 500px;
-  height: 400px;
+  width: 40%;
+  height: 500px;
+  margin-left: 5%;
   float: left;
 }
-.midcontpara{
-  width: 130%;
-  margin-left: 400px;
+.midcontpara {
+  width: 100%;
+  margin: 10% 10%;
   text-align: left;
-  margin-top: 120px;
+
   font-size: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/***************************************middle container 2***************************************/
+
+.midcontainer2 {
+  padding: 1%;
+  background-color: lightseagreen;
+  margin: 50px 0;
+}
+.parasinmidcont2 {
+  width: 100%;
+  font-size: 20px;
+  text-align: left;
+}
+.reasonsdivs {
+  width: 40%;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/*********************************middle container 3****************************************/
+
+.middlecontainer3 {
+  background-color: cyan;
+  padding: 30px;
+}
+
+.anchortag1 {
+  font-size: 30px;
+  margin-right: 5%;
+  color: black;
+}
+.articlesimg {
+  width: 28%;
+  height: 350px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.trendingheading {
+  display: inline-block;
+  margin-left: 0;
+}
+
+.hrbeforemidcont3 {
+  height: 3px;
+  margin-top: 100px;
+  width: 40%;
+  background-color: gray;
+  display: inline-block;
+}
+/******************************************************************************************/
+.hrbeforebottomcont {
+  border-style: dotted none none none;
+  border-width: 6px;
+  border-top-color: darkblue;
+  width: 3%;
+  margin: 100px auto;
+}
+.bottomcontainer {
+  padding: 50px 0 20px;
+  background-color: #66bfbf;
+}
+
+.footer-link {
+  margin: 10px 20px;
 }
 /******************************************************************************************/
 /* .bottomcontainer {
-  height: 50px;
-  padding-top: 20px;
-} */
+    height: 50px;
+    padding-top: 20px;
+  } */
+
+  
+  /* Add a hover effect if you want */
+  .fa-facebook:hover {
+    opacity: 0.9;
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color:#143781;
+    background-color: WHITE;
+
+  }
+
+  .fa-twitter:hover{
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color: #55ACEE;
+    background: white;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .fa-linkedin{
+    background: #0E76A8;
+    color: white;
+  }
+
+  .fa-linkedin:hover{
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color: #0E76A8;
+    background-color: white;
+  }
