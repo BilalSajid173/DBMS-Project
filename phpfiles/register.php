@@ -24,7 +24,7 @@
     <header class="headerofpage">
         <!--<img class="logoimage" src="images/BTC_Logo.svg" alt="Logo image">-->
         <nav class="navbar">
-            <a class="Homebutton" href="../index1.html">Home</a>
+            <a class="Homebutton" href="../index.html">Home</a>
             <a class="Contactndabout" href="">About</a>
             <a class="Contactndabout" href="">Contact</a>
             <a class="Contactndabout" href="">Crypto Prices</a>
