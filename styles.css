@@ -261,3 +261,66 @@ h3 {
     height: 50px;
     padding-top: 20px;
   } */
+
+
+  
+  /* Add a hover effect if you want */
+  .fa-facebook:hover {
+    opacity: 0.9;
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color:#143781;
+    background-color: WHITE;
+
+  }
+
+  .fa-twitter:hover{
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color: #55ACEE;
+    background: white;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .fa-linkedin{
+    background: #0E76A8;
+    color: white;
+  }
+
+  .fa-linkedin:hover{
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 70%;
+    color: #0E76A8;
+    background-color: white;
+  }
+
