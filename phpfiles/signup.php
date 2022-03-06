@@ -1,5 +1,45 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
+    include 'dbconnect.php';
+    $showAlert = false;
+    $showError = false;
+    $exist = false;
+    if (isset($_POST['password'])) {
+        $name = $_POST['studentname'];
+        $pswrd = $_POST['password'];
+        $cpswrd = $_POST['cpassword'];
+        $rollno = $_POST['rollno'];
+        $id = $_POST['studentid'];
+        $deptname = $_POST['deptname'];
+        $gender = $_POST['gender'];
+        $email = $_POST['email'];
+        $contactno = $_POST['contactno'];
 
+        $existsql = "SELECT * FROM `info` WHERE studentid='$id'";
+        $existresult = mysqli_query($conn, $existsql);
+        $existnum = mysqli_num_rows($existresult);
+        if ($existnum > 0) {
+            $exist = true;
+        } else {
+            $exist = false;
+        }
+
+        if ($pswrd == $cpswrd && $existnum == 0) {
+            $hash1 = password_hash($pswrd, PASSWORD_DEFAULT);
+            $hash2 = password_hash($cpswrd, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO `info` (`studentid`, `password`,`Time`) VALUES ('$id', '$hash1', current_timestamp())";
+            $result = mysqli_query($conn, $sql);
+            $sql1="INSERT INTO `studentinfo` (`studentname`, `studentid`, `rollno`, `deptname`, `gender`, `email`, `password`, `contactno`, `time`) VALUES ('$name', '$id', '$rollno', '$deptname', '$gender', '$email', '$pswrd', '$contactno', current_timestamp())";
+            $result1=mysqli_query($conn,$sql1);
+            if ($result) {
+                $showAlert = true;
+            }
+        }
+        if ($pswrd != $cpswrd) {
+            $showError = true;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,49 +49,202 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.ico.jpeg">
     <link rel="stylesheet" href="../styles.css">
-    <title>JamiaCryptoWebsite</title>
-    <link rel="icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="../phpfiles/login.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script src="xx.js"></script>
 </head>
 
-<body>
-    
-    <header class="headerofpage">
-        <!--<img class="logoimage" src="images/BTC_Logo.svg" alt="Logo image">-->
-        <nav class="navbar">
-            <a class="Homebutton" href="../index.html">Home</a>
-            <a class="Contactndabout" href="about.html">About</a>
-            <a class="Contactndabout" href="contact.html">Contact</a>
-            <a class="Contactndabout" href="">Crypto Prices</a>
+<body style="background-color:rgb(230, 254, 255);">
+<center>
+<header class="headerofpage" style="position:relative; margin-right:20px;margin-top:15px;">
+        <img src="../images/cover.png" alt="" class="logo">
+        <nav>
+            <ul class="navbar">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Crypto Prices</a></li>
+            </ul>
         </nav>
-        <nav class="navbar2">
-            <a class="signupndlogin" href="./login.php">Login</a>
-            <a class="signupndlogin register" href="./signup.php">Register</a>
-
-        </nav>
+        <a href="login.php" class="cta">Login</a>
     </header>
-    <div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
+</center>
+    <br>
+    <br><br><br><center>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($showAlert == true) {
+            echo '<span style="color:white; background-color:green; font-size:25px;width:10px;"> Successfully submitted username and password<br><br></span>';
+        }
+    }
+    ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($showError == true && $exist == false) {
+            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b>  Passwords do not match.<br><br></span>';
+        }
+    }
+    ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($showError == false && $exist == true) {
+            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b>  Username already taken.<br><br></span>';
+        }
+    }
+    ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($showError == true && $exist == true) {
+            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b> Passwords do not match and username already taken.<br><br></span>';
+        }
+    }
+    ?>
+    </center>
+    <center>
+    <div class="container">
 
-			<div class="signup">
-				<form action="register.php" method="POST">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="studentid" placeholder="Jamia Student ID or Roll Number" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-                    <input type="password" name="pswd" placeholder="Confirm Password" required="">
-					<button>Continue</button>
-				</form>
-			</div>
+        <form class="well form-horizontal" action="signup.php" method="post" id="contact_form">
+            <fieldset>
 
-			
-	</div>
+                <!-- Form Name -->
+                <legend>
+                    <center>
+                        <h2><b>Registration Form</b></h2>
+                    </center>
+                </legend><br><br>
+                <!-- Text input-->
+
+                <div class="form-group">Student Name</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input required="" name="studentname" placeholder="First Name" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Student ID</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input required="" name="studentid" placeholder="Student ID" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">Roll Number</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input required="" name="rollno" placeholder="Roll Number" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input  required="" name="email" placeholder="E-Mail Address" class="form-control" type="email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Department / Office</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select  required="" name="deptname" class="form-control selectpicker">
+                                <option value="">Select your Department/Office</option>
+                                <option>Computer Science</option>
+                                <option>Electronics & Communication</option>
+                                <option>Electrical Engineering</option>
+                                <option>Mechanical Engineering</option>
+                                <option>Civil Engineering</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Gender</label>
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select  required="" name="gender" class="form-control selectpicker">
+                                <option value="">Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
 
 
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Password</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  required="" name="password" placeholder="Password" class="form-control" type="password">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Confirm Password</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input required=""  name="cpassword" placeholder="Confirm Password" class="form-control" type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Contact No.</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input required=""  name="contactno" placeholder="Contact No." class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                
+
+
+                <!-- Text input-->
+
+               
+
+                <!-- Select Basic -->
+
+               
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-3"><br>
+                        <button type="submit" class="btn btn-warning" style="position:relative; margin-right:-5px;">SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        </center>
+    </div>
+    </div><!-- /.container -->
 </body>
+
 </html>

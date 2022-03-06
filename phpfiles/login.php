@@ -1,5 +1,40 @@
 <?php
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include 'dbconnect.php';
+    $login = false;
+    $showError = false;
+    if (isset($_POST['studentid'])) {
+        $id = $_POST['studentid'];
+        // $name = $_POST['studentname'];
+        $pswrd = $_POST['password'];
+        $exist = false;
+        $sql = "SELECT * from info where studentid='$id'";
+        $sql1 = "SELECT * from studentinfo where studentid='$id'";
+        $result = mysqli_query($conn, $sql);
+        $result1 = mysqli_query($conn, $sql1);
+        $num = mysqli_num_rows($result);
+        $row1=mysqli_fetch_assoc($result1);
+        if ($num == 1) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                if (password_verify($pswrd, $row['password'])) {
+                    $login = true;
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['studentid'] = $id;
+                    $_SESSION['studentname'] = $row1['studentname'];
+                    header("location:welcome.php");
+                }
+                else{
+                    $showError=true;
+                }
+            }
+        }
+        else{
+            $showError=true;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,55 +44,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.ico.jpeg">
     <link rel="stylesheet" href="../styles.css">
-    <title>JamiaCryptoWebsite</title>
-    <link rel="icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="../phpfiles/login.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script src="xx.js"></script>
 </head>
 
-<body>
-    <header class="headerofpage">
-        <!--<img class="logoimage" src="images/BTC_Logo.svg" alt="Logo image">-->
-        <nav class="navbar">
-            <a class="Homebutton" href="../index.html">Home</a>
-            <a class="Contactndabout" href="about.html">About</a>
-            <a class="Contactndabout" href="contact.html">Contact</a>
-            <a class="Contactndabout" href="">Crypto Prices</a>
+<body style="background-color:rgb(230, 254, 255);">
+<center>
+<header class="headerofpage" style="position:relative; margin-right:20px;margin-top:15px;">
+        <img src="../images/cover.png" alt="" class="logo">
+        <nav>
+            <ul class="navbar">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Crypto Prices</a></li>
+            </ul>
         </nav>
-        <nav class="navbar2">
-            <a class="signupndlogin" href="./login.php">Login</a>
-            <a class="signupndlogin register" href="./signup.php">Register</a>
-
-        </nav>
+        <a href="login.php" class="cta">Login</a>
     </header>
-    <div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
+</center>
+        <br><br><br>
+        <br><br><br>
+        <br>
+        
+        <form class="well form-horizontal" action="login.php" method="post" id="contact_form">
+            <fieldset>
 
-			<div class="signup">
-				<form action="register.php" method="POST">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="studentid" placeholder="Jamia Student ID or Roll Number" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-                    <input type="password" name="pswd" placeholder="Confirm Password" required="">
-					<button>Continue</button>
-				</form>
-			</div>
+                <!-- Form Name -->
+                <legend>
+                    <center>
+                        <h2><b>Log In </b></h2>
+                    
+                </legend><br>
 
-			<div class="login">
-				<form action="welcome.php" method="POST">
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="text" name="studentid" placeholder="Jamia Student ID or Roll Number" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-			</div>
-	</div>
+                <!-- Text input-->
 
+               
 
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Student ID</label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  required="" name="studentid" placeholder="Student ID" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Password</label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  required="" name="password" placeholder="password" class="form-control" type="password">
+                        </div>
+                    </div>
+                </div>
+                <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($login == true) {
+                echo '<h5> Successfully logged in!!</h5>';
+            }
+        }
+        ?>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($showError == true) {
+                echo '<br><h5 style="color:red">Error! Invalid Credentials</h5>';
+            }
+        }
+        ?>
+                <br>
+                <a style="color:blue;"href="signup.php"> New user? Create Account</a>
+
+                <!-- Text input-->
+
+               
+
+                <!-- Select Basic -->
+
+               
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-3"><br>
+                        <button type="submit" class="btn btn-warning" style="position:relative; margin-right:0px;">SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        </center>
+    </div>
+    </div><!-- /.container -->
+    </center>
 </body>
+
 </html>
