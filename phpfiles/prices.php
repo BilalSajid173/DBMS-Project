@@ -127,7 +127,7 @@ include './webscraping/index.php';
                 ?>
             </tr>
             <tr>
-                <td>Litecoin</td>
+                <td>Flexcoin</td>
                 <?php echo
                 '<td>'.$flexpricestring.'</td>';
                 ?>
