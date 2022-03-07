@@ -1,8 +1,13 @@
 <?php
+session_start();
 
-include './phpfiles/webscraping/index.php';
-
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+    header("location: login.php");
+    exit;
+}
+include './webscraping/index.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,17 +24,18 @@ include './phpfiles/webscraping/index.php';
 
 <body>
 
-    <header class="headerofpage">
-        <img src="images/cover.png" alt="" class="logo">
+<header class="headerofpage" style="position:relative; margin-right:20px;margin-top:15px;">
+        <img src="../images/cover.png" alt="" class="logo">
         <nav>
             <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="welcome.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Buy and Sell</a></li>
                 <li><a href="prices.php">Crypto Prices</a></li>
+                <li><a href="">Wallet</a></li>
             </ul>
         </nav>
-        <a href="./phpfiles/login.php" class="cta">Login</a>
+        <a href="logout.php" class="cta">Logout</a>
     </header>
     <br><br><br>
     <h1 class="main-heading">Latest Crypto Prices</h1>
