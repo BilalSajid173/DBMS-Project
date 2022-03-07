@@ -28,10 +28,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         <img src="../images/cover.png" alt="" class="logo">
         <nav>
             <ul class="navbar">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="welcome.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="./webscraping/index.php">Crypto Prices</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../prices.php">Crypto Prices</a></li>
                 <li><a href="">Wallet</a></li>
             </ul>
         </nav>
