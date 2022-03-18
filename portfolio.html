@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JamiaCryptoWebsite</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- CSS style sheet -->
+    <link rel="stylesheet" href="portfolio.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/499f9a6e08.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!--------------------------------------------- Nav Bar -------------------------------------------->
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="images/Logo.jpeg" alt="" class="logo">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="prices.php">Crypto Prices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cta" href="./phpfiles/login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+    <!--------------------------- TABLE 1 and info-table -------------------------------------------->
+
+    <div class="tab1container">
+
+        <table class="info-table">
+            <tr>
+                <th>Name:</th>
+                <td>hfdleisdsjn</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>hfdleisdsjn</td>
+            </tr>
+            <tr>
+                <th>Department:</th>
+                <td>hfdleisdsjn</td>
+            </tr>
+            <tr>
+                <th>Phone:</th>
+                <td>hfdleisdsjn</td>
+            </tr>
+        </table>
+
+        <table class="table1">
+            <tr>
+                <th>Invested</th>
+                <th>Returns</th>
+                <th>Return%</th>
+                <th>Remaining JamiaCoin</th>
+            </tr>
+            <tr>
+                <td>18500</td>
+                <td>6000</td>
+                <td>32.43%</td>
+                <td>200000</td>
+            </tr>
+        </table>
+    </div>
+
+    <!------------------------------------Buying  ----------------------------------->
+
+    <div class="buying">
+
+        <button type="button" class="cross-btn-buy"><i class="fa-solid fa-xmark"></i></button>
+        <form action="">
+            <label for="coin">Choose the coin:</label>
+            <select name="coin" id="coin">
+                <option value="Bitcoin" selected>Bitcoin</option>
+                <option value="Etherium">Ethereum</option>
+                <option value="Tether">Tether</option>
+                <option value="Litecoin">Litecoin</option>
+                <option value="Binance coin">Binance coin</option>
+                <option value="Dogecoin">Dogecoin</option>
+                <option value="Avalanche">Avalanche</option>
+            </select>
+
+            <label for="investment">Investment:</label>
+            <input name="investment" type="number" class="inv">
+
+            <label for="curPrice">Current Price of coin:</label>
+            <input name="curPrice" type="number" class="price">
+            <button class="buy-btn" value="Buy">Buy</button>
+        </form>
+    </div>
+
+    <!----------------------------- Selling ----------------------------------------->
+
+    <div class="selling">
+
+        <button type="button" class="cross-btn-sell"><i class="fa-solid fa-xmark"></i></button>
+        <form action="">
+            <label for="coin">Choose the coin:</label>
+            <select name="coin" id="coin">
+                <option value="Bitcoin" selected>Bitcoin</option>
+                <option value="Etherium">Ethereum</option>
+                <option value="Tether">Tether</option>
+                <option value="Litecoin">Litecoin</option>
+                <option value="Binance coin">Binance coin</option>
+                <option value="Dogecoin">Dogecoin</option>
+                <option value="Avalanche">Avalanche</option>
+            </select>
+
+            <label for="Selling-amt">Choose Amount:</label>
+            <input name="Selling-amt" type="number" class="sold">
+
+            <button class="sell-btn" value="Sell">Sell</button>
+        </form>
+    </div>
+
+
+    <!---------------------------------------- Transfer ----------------------------------->
+
+    <div class="transfer">
+
+        <button type="button" class="cross-btn-transfer"><i class="fa-solid fa-xmark"></i></button>
+        <form action="">
+
+            <label for="user">Choose User:</label>
+            <input type="text" name="user">
+
+            <label for="coin">Choose the coin:</label>
+            <select name="coin" id="coin">
+                <option value="Bitcoin" selected>Bitcoin</option>
+                <option value="Etherium">Ethereum</option>
+                <option value="Tether">Tether</option>
+                <option value="Litecoin">Litecoin</option>
+                <option value="Binance coin">Binance coin</option>
+                <option value="Dogecoin">Dogecoin</option>
+                <option value="Avalanche">Avalanche</option>
+            </select>
+
+            <label for="Transfer-amt">Choose Amount:</label>
+            <input name="Transfer-amt" type="number" class="trade">
+
+            <button class="transfer-btn" value="Transfer">Transfer</button>
+        </form>
+    </div>
+
+    <!---------------------------- BUTTONS -------------------------------->
+
+    <div class="buttons">
+        <button type="button" class="btn btn-primary btn-lg buy">Buy</button>
+        <button type="button" class="btn btn-primary btn-lg sell">Sell</button>
+        <button type="button" class="btn btn-primary btn-lg trade">Transfer</button>
+    </div>
+
+
+    <!------------------------------------ TABLE 2 ----------------------------------->
+
+    <div class="tab2container">
+
+        <table class="crypto-table">
+            <tr>
+                <th>Coin(Qty Owned)</th>
+                <th>Invested</th>
+                <th>Return</th>
+                <th>Current Price</th>
+            </tr>
+            <tr class="btc">
+                <td>BitCoin(1)</td>
+                <td>2000</td>
+                <td>1000</td>
+                <td>3000</td>
+            </tr>
+            <tr class="etherium">
+                <td>Ethereum(1)</td>
+                <td>3000</td>
+                <td>500</td>
+                <td>3500</td>
+            </tr>
+            <tr class="tether">
+                <td>Tether(1.5)</td>
+                <td>1500</td>
+                <td>1500</td>
+                <td>2000</td>
+            </tr>
+            <tr class="litecoin">
+                <td>Litecoin(0.5)</td>
+                <td>4000</td>
+                <td>500</td>
+                <td>9000</td>
+            </tr>
+            <tr class="binance">
+                <td>Binance coin(1)</td>
+                <td>3000</td>
+                <td>500</td>
+                <td>3500</td>
+            </tr>
+            <tr class="dogecoin">
+                <td>Dogecoin(1)</td>
+                <td>2000</td>
+                <td>1500</td>
+                <td>3500</td>
+            </tr>
+            <tr class="avalanche">
+                <td>Avalanche(3)</td>
+                <td>3000</td>
+                <td>1500</td>
+                <td>1500</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="lowerpara">
+        <p>@2022 Cryptico Ltd.</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="portfolio.js"></script>
+
+</body>

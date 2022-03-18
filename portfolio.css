@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Montserrat:wght@200&family=Noto+Serif+Display:wght@200&family=Redressed&family=Source+Code+Pro:wght@200&display=swap");
+li,
+a,
+button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  background-color: #310f64;
+}
+
+/******************************************Navbar**************************************/
+
+.container-fluid {
+  padding: 8px 5%;
+  /* position: fixed; */
+}
+
+.navbar {
+  padding: 12px 7%;
+  background-color: #24252a;
+  border-radius: 30px;
+}
+
+.nav-item {
+  margin: 10px 0;
+  padding: 0px 20px;
+}
+
+.navbar li a {
+  transition: all 0.3s ease 0s;
+}
+
+.navbar li a:hover {
+  color: #0088a9;
+  background-color: #310f64;
+  padding: 9px 25px;
+  border-radius: 50px;
+}
+
+.logo {
+  width: 80px;
+  height: 60px;
+  border-radius: 18px;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.cta {
+  padding: 9px 25px;
+  margin: 2px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}
+
+/****************************************Table1*******************************************/
+
+.tab1container {
+  margin: 50px 0;
+  font-family: "Montserrat";
+  font-weight: 800;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info-table {
+  margin-right: 45px;
+}
+
+.info-table th,
+.info-table td {
+  color: black;
+  padding: 5px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.info-table td {
+  color: #f5f7f8;
+}
+
+.table1 {
+  width: 70%;
+  background-color: #5d8bf4;
+  box-shadow: 3px 3px 10px rgb(255, 255, 255);
+  border-radius: 25px;
+}
+
+.table1 th,
+.table1 td {
+  padding: 10px;
+  font-size: 30px;
+  color: #f5f7f8;
+}
+
+/************************************Crypto-Table********************************************/
+
+.tab2container {
+  width: 70%;
+  margin: 70px auto 100px auto;
+  font-family: "Montserrat";
+  font-weight: 700;
+  padding: 30px 20px 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  box-shadow: 3px 3px 5px white;
+}
+
+.crypto-table {
+  border-radius: 25px;
+  width: 90%;
+}
+
+.crypto-table tr:nth-child(even) {
+  background-color: #5d8bf4;
+}
+
+.crypto-table th,
+.crypto-table td {
+  padding: 15px 10px;
+  font-size: 25px;
+  color: black;
+}
+
+.crypto-table th {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/****************************************Buttons**************************************/
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 30px;
+  margin: 10px 20px;
+}
+
+/***********************************Buying, Selling and Transfer*****************************************/
+
+.buying,
+.selling,
+.transfer {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  padding: 40px 30px;
+  font-size: 30px;
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  background-color: white;
+  visibility: hidden;
+  border-radius: 15px;
+  transition: all 0.3s ease-in;
+}
+
+.transfer,
+.buying {
+  height: 400px;
+}
+
+.buying select,
+.buying select,
+.transfer select {
+  margin-bottom: 20px;
+}
+
+.buy-btn,
+.sell-btn,
+.transfer-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 10px 40px;
+  background-color: #5d8bf4;
+  color: black;
+  border: 0;
+  border-radius: 10px;
+}
+
+.buy-btn:hover,
+.sell-btn:hover,
+.transfer-btn:hover {
+  background-color: blueviolet;
+}
+
+.cross-btn-buy,
+.cross-btn-sell,
+.cross-btn-transfer {
+  position: absolute;
+  color: black;
+  border: 0;
+  top: 4px;
+  right: 20px;
+}
+
+.transfer input[type="text"] {
+  margin-bottom: 20px;
+}
+
+/***************************************************************************************/
+.selected {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.lowerpara {
+  text-align: center;
+  color: white;
+}
+
+/**********************************************Media Queries*********************************/
+
+@media (max-width: 1000px) {
+  .tab2container {
+    padding: 30px 15px 50px 15px;
+  }
+
+  .info-table {
+    margin-right: 25px;
+  }
+
+  .crypto-table th,
+  .crypto-table td {
+    padding: 10px 8px;
+    font-size: 20px;
+  }
+
+  .info-table th,
+  .info-table td {
+    font-size: 18px;
+  }
+
+  .table1 th,
+  .table1 td {
+    padding: 7px;
+    font-size: 20px;
+  }
+
+  .buying,
+  .selling,
+  .transfer {
+    left: 20%;
+    padding: 40px 20px;
+    font-size: 20px;
+    height: 250px;
+    width: 350px;
+  }
+
+  .buying select,
+  .selling select,
+  .transfer select {
+    margin-bottom: 15px;
+  }
+
+  .buy-btn,
+  .sell-btn {
+    padding: 10px 35px;
+  }
+
+  .transfer,
+  .buying {
+    height: 350px;
+    width: 400px;
+  }
+
+  .transfer-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 35px;
+  }
+
+  .transfer input[type="text"] {
+    margin-bottom: 15px;
+  }
+
+  .buying .inv {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .tab1container {
+    flex-direction: column;
+  }
+
+  .tab2container {
+    width: 100%;
+    padding: 30px 10px 50px 10px;
+  }
+
+  .info-table {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+
+  .info-table th,
+  .info-table td {
+    padding: 10px;
+    font-size: 25px;
+  }
+
+  .table1 th,
+  .table1 td {
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .buying,
+  .selling,
+  .transfer {
+    top: 70%;
+  }
+
+  .transfer,
+  .buying {
+    left: 15%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .table1 th,
+  .table1 td {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .crypto-table th,
+  .crypto-table td {
+    padding: 7px 5px;
+    font-size: 15px;
+  }
+
+  .buying,
+  .selling,
+  .transfer {
+    left: 10%;
+    padding: 30px 10px;
+    font-size: 13px;
+    height: 200px;
+    width: 300px;
+  }
+
+  .buying {
+    font-size: 14px;
+    height: 220px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    margin: 10px;
+  }
+}
