@@ -9,24 +9,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $name = $_POST['studentname'];
         $pswrd = $_POST['password'];
         $exist = false;
-        $sql = "SELECT * from info where studentid='$id'";
-        $sql1 = "SELECT * from studentinfo where studentid='$id'";
-        $result = mysqli_query($conn, $sql);
-        $result1 = mysqli_query($conn, $sql1);
-        $num = mysqli_num_rows($result);
-        $row1=mysqli_fetch_assoc($result1);
+        $sql_login = "SELECT * from login_info where studentid='$id'";
+        
+        $result_login = mysqli_query($conn, $sql_login);
+        // 
+        $num = mysqli_num_rows($result_login);
+        
         if ($num == 1) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                if (password_verify($pswrd, $row['password'])) {
+            while ($row_login = mysqli_fetch_assoc($result_login)) {
+                if (password_verify($pswrd, $row_login['password'])) {
+                    echo "logged in";
                     $login = true;
                     session_start();
                     $_SESSION['loggedin'] = true;
                     $_SESSION['studentid'] = $id;
-                    $_SESSION['studentname'] = $row1['studentname'];
+                    
                     header("location:welcome.php");
                 }
                 else{
                     $showError=true;
+                    // echo "anas";
                 }
             }
         }
@@ -59,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul class="navbar">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../contactform/index.php">Contact</a></li>
                 <li><a href="../prices.php">Crypto Prices</a></li>
             </ul>
         </nav>

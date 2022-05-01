@@ -25,7 +25,7 @@ include './phpfiles/webscraping/index.php';
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/contactform/index.php">Contact</a></li>
                 <li><a href="prices.php">Crypto Prices</a></li>
             </ul>
         </nav>
@@ -33,12 +33,13 @@ include './phpfiles/webscraping/index.php';
     </header>
     <br><br><br>
     <h1 class="main-heading">Latest Crypto Prices</h1>
+    <?php echo '<h4 style="color:red">'.$lastupdated.'</h4>';?>
     <section class="table-section">
         <table class="price-table">
             <tr>
                 <th class="col-1">CRYPTOCURRENCY</th>
                 <th class="col-2">PRICE</th>
-                <th class="col-3">24-Hour Change(In percent)</th>
+                <th class="col-3">24-Hour Change</th>
             </tr>
             <tr>
                 <td>Bitcoin</td>
@@ -117,22 +118,6 @@ include './phpfiles/webscraping/index.php';
                 else{
                     echo
                 '<td><span  style="background-color:#da0000; padding:11px; border-radius:10px; color:white;">'.$binancechangestring.'</span></td>';
-                }
-                ?>
-            </tr>
-            <tr>
-                <td>Flex</td>
-                <?php echo
-                '<td>'.$flexpricestring.'</td>';
-                ?>
-                <?php
-                if($flexchangestring[0]=='+'){ 
-                echo
-                '<td><span  style="background-color:darkgreen; color:white; padding:11px; border-radius:10px;">'.$flexchangestring.'</span></td>';
-                }
-                else{
-                    echo
-                '<td><span  style="background-color:#da0000; padding:11px; border-radius:10px; color:white;">'.$flexchangestring.'</span></td>';
                 }
                 ?>
             </tr>

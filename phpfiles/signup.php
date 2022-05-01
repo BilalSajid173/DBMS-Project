@@ -14,8 +14,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
         $gender = $_POST['gender'];
         $email = $_POST['email'];
         $contactno = $_POST['contactno'];
+        $btcinvest=0;
+        $avgbtcbuy=0;
+        $ethinvest=0;
+        $avgethbuy=0; 
+        $tethinvest=0;
+        $avgtethbuy=0; 
 
-        $existsql = "SELECT * FROM `info` WHERE studentid='$id'";
+        $bininvest=0;
+        $avgbinbuy=0;
+        $liteinvest=0;
+        $avglitebuy=0; 
+        $dogeinvest=0;
+        $avgdogebuy=0; 
+        $avainvest=0;
+        $avgavabuy=0;
+        $jamiacoin=100;
+        
+
+        $existsql = "SELECT * FROM `login_info` WHERE studentid='$id'";
         $existresult = mysqli_query($conn, $existsql);
         $existnum = mysqli_num_rows($existresult);
         if ($existnum > 0) {
@@ -27,10 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
         if ($pswrd == $cpswrd && $existnum == 0) {
             $hash1 = password_hash($pswrd, PASSWORD_DEFAULT);
             $hash2 = password_hash($cpswrd, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `info` (`studentid`, `password`,`Time`) VALUES ('$id', '$hash1', current_timestamp())";
+            $sql = "INSERT INTO `login_info` (`studentid`, `password`,`time`) VALUES ('$id', '$hash1', current_timestamp())";
             $result = mysqli_query($conn, $sql);
-            $sql1="INSERT INTO `studentinfo` (`studentname`, `studentid`, `rollno`, `deptname`, `gender`, `email`, `password`, `contactno`, `time`) VALUES ('$name', '$id', '$rollno', '$deptname', '$gender', '$email', '$pswrd', '$contactno', current_timestamp())";
-            $result1=mysqli_query($conn,$sql1);
+ ////////////////           ////////////////////
+            $sql1="INSERT INTO `student_info` (`name`, `studentid`, `rollno`, `deptname`, `gender`, `email`, `contactno`) VALUES ('$name', '$id', '$rollno', '$deptname', '$gender', '$email', '$contactno')";
+            $result1 = mysqli_query($conn, $sql1);
+//////////////////////////////////
+            $sql_wallet="INSERT INTO `crypto_wallet` (`studentid`, `bitcoin_investment`, `avg_btc_buyprice`, `ethereum_investment`, `avg_eth_buyprice`, `tether_investment`,`avg_teth_buyprice`,`lite_investment`,`avg_lite_buyprice`,`binance_investment`, `avg_bin_buyprice`, `doge_investment`,`avg_doge_buyprice`,`ava_investment`,`avg_ava_buyprice`,`jamiacoin`) VALUES ('$id', '$btcinvest', '$avgbtcbuy', '$ethinvest', '$avgethbuy', '$tethinvest', '$avgtethbuy','$liteinvest','$avglitebuy','$bininvest','$avgbinbuy','$dogeinvest','$avgdogebuy','$avainvest','$avgavabuy','$jamiacoin')";
+            $result_wallet=mysqli_query($conn,$sql_wallet);
             if ($result) {
                 $showAlert = true;
             }
@@ -64,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
             <ul class="navbar">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../contactform/index.php">Contact</a></li>
                 <li><a href="../prices.php">Crypto Prices</a></li>
             </ul>
         </nav>
@@ -76,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($showAlert == true) {
-            echo '<span style="color:white; background-color:green; font-size:25px;width:10px;"> Successfully submitted username and password<br><br></span>';
+            echo '<span style="color:white; background-color:green; font-size:25px;width:10px;"> Successfully submitted the details.<br><br></span>';
         }
     }
     ?>
@@ -90,14 +111,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($showError == false && $exist == true) {
-            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b>  Username already taken.<br><br></span>';
+            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b>  StudentID already taken.<br><br></span>';
         }
     }
     ?>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($showError == true && $exist == true) {
-            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b> Passwords do not match and username already taken.<br><br></span>';
+            echo '<span style="color:white; background-color:red; font-size:25px;width:10px;"><b>Error!</b> Passwords do not match and StudentID already taken.<br><br></span>';
         }
     }
     ?>
@@ -131,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input required="" name="studentid" placeholder="Student ID" class="form-control" type="text">
+                            <input required="" name="studentid" placeholder="Student ID" class="form-control" type="number">
                         </div>
                     </div>
                 </div>
@@ -165,6 +186,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
                                 <option>Electrical Engineering</option>
                                 <option>Mechanical Engineering</option>
                                 <option>Civil Engineering</option>
+                                <option>BA.Economics(Hons)</option>
+                                <option>B.Com</option>
                             </select>
                         </div>
                     </div>
@@ -216,7 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['studentid'])) {
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input required=""  name="contactno" placeholder="Contact No." class="form-control" type="text">
+                            <input required=""  name="contactno" placeholder="Contact No." class="form-control" type="number">
                         </div>
                     </div>
                 </div>
