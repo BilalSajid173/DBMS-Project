@@ -460,9 +460,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                         <a href="welcome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.php">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="portfolio.php">Portfolio</a>
                     </li>
                     <li class="nav-item">

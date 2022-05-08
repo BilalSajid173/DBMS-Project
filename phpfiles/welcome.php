@@ -1,10 +1,19 @@
 <?php
-session_start();
 
+session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
 }
+
+include 'dbconnect.php';
+$id=$_SESSION['studentid'];
+$sql_student = "SELECT * from student_info where studentid='$id'";
+$result_student = mysqli_query($conn, $sql_student);
+$row_student=mysqli_fetch_assoc($result_student);
+$_SESSION['studentname'] = $row_student['name'];
+
+header("location:/landing-page.php");
 
 ?>
 
@@ -30,9 +39,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
             <ul class="navbar">
                 <li><a href="welcome.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Buy and Sell</a></li>
+                <li><a href="portfolio.php">Portfolio</a></li>
                 <li><a href="prices.php">Crypto Prices</a></li>
-                <li><a href="">Wallet</a></li>
             </ul>
         </nav>
         <a href="logout.php" class="cta">Logout</a>
@@ -49,7 +57,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     echo $_SESSION['studentname'];
     ?> ??</h4>
   <hr>
-  <p class="mb-0"><a href="./login.php" style="color:blue">Click here to logout</a></p>
+  <p class="mb-0"><a href="./login.php" style="color:blue">Click here to logout</a></p></center>
 </div>
 </div>
 </body>
