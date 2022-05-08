@@ -47,15 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" href="images/favicon.ico.jpeg">
     <link rel="stylesheet" href="login.css">
     <script src="xx.js"></script>
 </head>
 
-<body style="background-color:rgb(230, 254, 255);">
-<center>
-<header class="headerofpage" style="position:relative; margin-right:20px;margin-top:15px;">
+<body>
+
+    <header class="headerofpage">
         <img src="../images/cover.png" alt="" class="logo">
         <nav>
             <ul class="navbar">
@@ -67,86 +68,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
         <a href="login.php" class="cta">Login</a>
     </header>
-</center>
-        <br><br><br>
-        <br><br><br>
-        <br>
-        
-        <form class="well form-horizontal" action="login.php" method="post" id="contact_form">
-            <fieldset>
 
-                <!-- Form Name -->
-                <legend>
-                    <center>
-                        <h2><b>Log In </b></h2>
-                    
-                </legend><br>
 
-                <!-- Text input-->
-
-               
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">Student ID</label>
-                    <div class="col-md-2 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  required="" name="studentid" placeholder="Student ID" class="form-control" type="text">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">Password</label>
-                    <div class="col-md-2 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  required="" name="password" placeholder="password" class="form-control" type="password">
-                        </div>
-                    </div>
-                </div>
-                <?php
+    <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($login == true) {
-                echo '<h5> Successfully logged in!!</h5>';
+                echo '<h5 style="text-align:center"> Successfully logged in!!</h5>';
             }
         }
         ?>
-        <?php
+    <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($showError == true) {
-                echo '<br><h5 style="color:red">Error! Invalid Credentials</h5>';
+                echo '<br><h5 style="color:red;text-align:center">Error! Invalid Credentials</h5>';
             }
         }
         ?>
-                <br>
-                <a style="color:blue;"href="signup.php"> New user? Create Account</a>
 
-                <!-- Text input-->
+    <div class="login-form-container">
 
-               
+        <div class="wrapper-login">
 
-                <!-- Select Basic -->
+            <h4>Please Enter Valid Credentials</h4>
 
-               
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-3"><br>
-                        <button type="submit" class="btn btn-warning" style="position:relative; margin-right:0px;">SUBMIT <span class="glyphicon glyphicon-send"></span></button>
-                    </div>
-                </div>
+            <form action="login.php" method="post" id="contact_form">
 
-            </fieldset>
-        </form>
-        </center>
+                <input required="" name="studentid" placeholder="Student ID" type="text">
+
+                <input required="" name="password" placeholder="Password" type="password">
+
+                <button type="submit" class="btn btn-outline-primary">Login</button>
+
+                <p>New User? <a href="signup.php"> Create Account</a></p>
+
+            </form>
+        </div>
+
     </div>
-    </div><!-- /.container -->
-    </center>
+
+
 </body>
 
 </html>
