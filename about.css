@@ -13,6 +13,7 @@ button {
 body {
   width: 100%;
   height: auto;
+
   background-color: #310f64;
 }
 
@@ -20,6 +21,9 @@ body {
 
 .container-fluid {
   padding: 8px 5%;
+  background-image: url("images/about-us-bg.jpg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   /* position: fixed; */
 }
 
@@ -70,48 +74,68 @@ body {
 /*********************************Top-Div*************************************/
 
 .about-top-div {
+  background-image: url("images/about-us-bg.jpg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   padding: 0 10%;
 }
 
-.div1{
+.div1 {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: rgb(5, 1, 19);
+  color: white;
   padding: 5% 0;
+  background-color: #310f64;
 }
 
-
-.div1 h5, .div1 h1{
-  margin: 1rem;
+.div1 h1 {
+  margin: 3rem;
   text-align: center;
+}
+
+.div1 h2 {
+  color: white;
+}
+
+.div1 h4 {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 /*****************************team-div***************************************************/
 
-h3{
+.team-heading {
+  background-image: url("images/about-us-bg.jpg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   color: white;
+  margin: 0 auto;
 }
 
-hr{
+hr {
   height: 0.2rem !important;
   width: 80%;
   margin: 0 auto;
   color: rgb(255, 255, 255);
 }
 
-.team-div{
+.team-div {
+  background-image: url("images/about-us-bg.jpg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 3% 10%;
 }
 
-.card{
+.card {
   width: 30%;
   margin: 1rem;
   background-color: #310f64;
@@ -125,7 +149,7 @@ hr{
   border-top: 2px solid gray;
 }
 
-.card img{
+.card img {
   width: 50%;
   height: 60%;
   border-radius: 50%;
@@ -233,6 +257,7 @@ hr{
 .socialmedia {
   display: flex;
   justify-content: center;
+  padding-top: 30px;
 }
 .bottomcontainer p {
   color: white;
