@@ -90,27 +90,27 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
             </div>
             <div class="instructions-1">
                 <div class="ins">
-                    <h4>Buying Coins</h4>
+                    <h3>Buying Coins</h3>
                     <p>Click on the buy button</p>
                     <p>Choose the coin you want to buy</p>
                     <p>Enter Your investment value</p>
                     <p>Enter the price of the coin and click on Buy</p>
                 </div>
                 <div class="ins">
-                    <h4>Selling Coins</h4>
+                    <h3>Selling Coins</h3>
                     <p>Click on the sell button</p>
                     <p>Choose the coin you want to Sell</p>
                     <p>Enter the amount and click sell</p>
                 </div>
                 <div class="ins">
-                    <h4>Transferring Coins</h4>
+                    <h3>Transferring Coins</h3>
                     <p>Click on the transfer button</p>
                     <p>Choose the coin you want to Transfer</p>
                     <p>Enter the UserId of the recipient</p>
                     <p>Enter the amount and click Transfer</p>
                 </div>
             </div>
-            <h2 class="bottom">Thats all you need to know to use our website. Happy Trading!!!</h2>
+            <h2 class="bottom">Thats all you need to know to use our website. Happy Trading!</h2>
         </div>
     </div>
 
