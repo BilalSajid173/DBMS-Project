@@ -68,40 +68,49 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     </div>
 
     <div class="cont">
-
         <div class="profile-wrapper">
-            <div class="profile-info">
-                <h2>Welcome Username</h2>
-                <h5>Student Id:</h5>
-                <h5>Roll No:</h5>
-                <h5>Email Address:</h5>
-                <h5>Department:</h5>
-                <h5>Contact Number:</h5>
+            <div class="box">
+                <div class="profile-info">
+                    <h2>Welcome Username</h2>
+                    <h5>Student Id:</h5>
+                    <h5>Roll No:</h5>
+                    <h5>Email Address:</h5>
+                    <h5>Department:</h5>
+                    <h5>Contact Number:</h5>
+                </div>
+                <div class="user-buttons">
+                    <button type="button" class="btn"><a href="#">PORTFOLIO</a></button>
+                </div>
             </div>
-            <div class="user-buttons">
-                <button class="d-grid gap-2 col-6 btn btn-outline-success btn-lg"><a href="#">Portfolio</a></button>
+            <h3 class="getStarted">How To Get Started</h3>
+            <div class="instructions">
+                <p>After creating an account or logging in, you will be redirected to this homepage.</p>
+                <p>Now Click on the portfolio button to go to your trading page.</p>
+                <p>There you will see details like Available JamiaCoin, total investment, returns etc.</p>
             </div>
-
-            <h3>How To Get Started</h3>
-            <p>After creating an account or logging in, you will be redirected to this homepage.</p>
-            <p>Now Click on the portfolio button to go to your trading page.</p>
-            <p>There you will see details like Available JamiaCoin, total investment, returns etc.</p>
-            <h4>Buying Coins</h4>
-            <p>Click on the buy button</p>
-            <p>Choose the coin you want to buy</p>
-            <p>Enter Your investment value</p>
-            <p>Enter the price of the coin and click on Buy</p>
-            <h4>Selling Coins</h4>
-            <p>Click on the sell button</p>
-            <p>Choose the coin you want to Sell</p>
-            <p>Enter the amount and click sell</p>
-            <h4>Transferring Coins</h4>
-            <p>Click on the transfer button</p>
-            <p>Choose the coin you want to Transfer</p>
-            <p>Enter the UserId of the recipient</p>
-            <p>Enter the amount and click Transfer</p>
-
-            <h2>Thats all you need to know to use our website. Happy Trading!!!</h2>
+            <div class="instructions-1">
+                <div class="ins">
+                    <h4>Buying Coins</h4>
+                    <p>Click on the buy button</p>
+                    <p>Choose the coin you want to buy</p>
+                    <p>Enter Your investment value</p>
+                    <p>Enter the price of the coin and click on Buy</p>
+                </div>
+                <div class="ins">
+                    <h4>Selling Coins</h4>
+                    <p>Click on the sell button</p>
+                    <p>Choose the coin you want to Sell</p>
+                    <p>Enter the amount and click sell</p>
+                </div>
+                <div class="ins">
+                    <h4>Transferring Coins</h4>
+                    <p>Click on the transfer button</p>
+                    <p>Choose the coin you want to Transfer</p>
+                    <p>Enter the UserId of the recipient</p>
+                    <p>Enter the amount and click Transfer</p>
+                </div>
+            </div>
+            <h2 class="bottom">Thats all you need to know to use our website. Happy Trading!!!</h2>
         </div>
     </div>
 
