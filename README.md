@@ -7,7 +7,7 @@ This project was made by:<br />
 -Syed Ali Mujtaba (20BCS088)<br />
 -Nasrul Huda (20BCS078)<br />
 -Mohammed Ehtesham Anwar (20BCS085)<br />
--Abdur Rahman Khan<br />
--Rashid (20BEE074) <br />
+-Abdur Rahman Khan (20BEE080) <br />
+-Md. Rashid (20BEE074) <br />
 
 Deployed At :- http://cryptico.epizy.com/
