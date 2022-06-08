@@ -1,6 +1,6 @@
 # DBMS-Project
 This project was made by:
--Bilal Sajid (20BCS057)
+-Bilal Sajid (20BCS057) <br />
 -Mohammed Anas (20BEE076)
 -Aadil Muhammad Hussain (20BCS073)
 -Arsh Ali Khan (20BCS081)
