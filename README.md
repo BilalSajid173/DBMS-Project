@@ -8,4 +8,6 @@ This project was made by:<br />
 -Nasrul Huda (20BCS078)<br />
 -Mohammed Ehtesham Anwar (20BCS085)<br />
 -Abdur Rahman Khan<br />
--Rashid (20BEE074)
+-Rashid (20BEE074) <br />
+
+Deployed At :- http://cryptico.epizy.com/
